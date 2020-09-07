@@ -9,13 +9,13 @@
   <div class="container">
     <div class="row">
       <div class="mx-auto col-lg-12 col-10">
-        <form class="text-left" 
-          *ngIf="!isSuccessful"
-          name="form"
-          (ngSubmit)="f.form.valid && onSubmit()"
-          #f="ngForm"
-          novalidate
+        <form *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
         >
+        <form class="text-left">
         <!-- Nome -->
           <div class="form-group">
             <label for="nome">Nome</label>
@@ -32,7 +32,7 @@
                   <div *ngIf="nome.errors.required">Name is required</div>
                 </div>
           </div>
-          <!-- Sobrenome -->
+          <!-- `nome -->
           <div class="form-group">
             <label for="sobrenome">Sobrenome:</label>
             <input 
@@ -324,43 +324,45 @@
           </div>
           <div class="col-3">
             <!-- Tipo de Usuario -->
-            <label for="roles" class="form-text">Cliente / Profissonal:</label>
+            <label for="role" class="form-text">Cliente / Profissonal:</label>
             <select 
-              name="roles" 
+              name="role" 
               class="form-group"
-              [(ngModel)]="form.roles"
+              [(ngModel)]="form.role"
                 required
-                #roles="ngModel"
+                #role="ngModel"
             >
               <option>Cliente</option>
-              <option>Profissional</option>
+              <option>Professional</option>
             </select>
-            <div class="alert-danger" *ngIf="f.submitted && roles.invalid">
-              <div *ngIf="roles.errors.required">Tipo de usuário is required</div>
+            <div class="alert-danger" *ngIf="f.submitted && role.invalid">
+              <div *ngIf="role.errors.required">Tipo de usuário is required</div>
             </div>
             &nbsp;
           </div>
           <div class="form-group">
             <!-- Checkboc=x Termos -->
-            <!-- <div class="form-check"> <input class="form-check-input" type="checkbox" id="form21" value="on">
+            <div class="form-check"> <input class="form-check-input" type="checkbox" id="form21" value="on">
               <label class="form-check-label" for="form2">Eu concordo com os <u><a target="_blank"
                     rel="noopener noreferrer" href="termos.html">termos e condições do serviço</a></u></label>
-            </div> -->
+            </div>
           </div>
           <!-- Enviar -->
           <!-- <button type="submit" class="btn btn-primary">Enviar</button> -->
-          <!-- &nbsp;&nbsp;&nbsp; -->
-          <!-- Limpar -->
-          <!-- <button type="submit" class="btn btn-secondary">Limpar</button> -->
 
           <div class="form-group">
             <button class="btn btn-primary btn-block">Sign Up</button>
           </div>
+
+          <!-- &nbsp;&nbsp;&nbsp; -->
+          <!-- Limpar -->
+          <!-- <button type="submit" class="btn btn-secondary">Limpar</button> -->
     
           <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
             Signup failed!<br />{{ errorMessage }}
           </div>
 
+        </form>
         </form>
         <div class="alert alert-success" *ngIf="isSuccessful">
           Your registration is successful!

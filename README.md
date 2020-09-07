@@ -1,4 +1,29 @@
-# PraticaADS
+
+# Projeto-Pratica_Profissional-ADS-Frontend
+
+### Sobre
+
+Projeto de prática profissional ADS 5 Semestre Mackenzie
+
+##### Integrantes
+* Carlos Rodrigues de Oliveira
+* Daniel do Rosário Rocha
+* Jose luiz Gonçalves
+* Paulo Batista De Oliveira 
+
+---
+### Links
+
+[Trello](https://trello.com/b/erxcpe1q)
+
+[Documentação](https://gitlab.com/projeto_pratica_profissional_ads/Documentacao)
+
+[Backend](https://gitlab.com/projeto_pratica_profissional_ads/Backend)
+
+[Frontend](https://gitlab.com/projeto_pratica_profissional_ads/Frontend)
+
+---
+# Sobre o FrontEnd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
