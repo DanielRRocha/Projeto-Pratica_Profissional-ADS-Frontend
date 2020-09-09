@@ -3,6 +3,7 @@
 
     <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
+        <!-- Nome -->
         <label for="nome">Nome</label>
         <input type="text" class="form-control" name="nome" [(ngModel)]="form.nome" required #nome="ngModel"
           placeholder="Nome" />
