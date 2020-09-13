@@ -41,7 +41,7 @@ export class AuthService {
       bairro: user.bairro,
       cidade: user.cidade,
       estado: user.estado,
-      role: user.role
+      role: [user.role]
     }, httpOptions);
   }
 

@@ -182,14 +182,16 @@
 
         <div class="col-3">
           <!-- Tipo de Usuario -->
-          <label for="roles" class="form-text">Cliente / Profissonal:</label>
-          <select id="tipo_cliente" name="roles" class="form-group" [(ngModel)]="form.roles" required #roles="ngModel">
+          <label for="role" class="form-text">Cliente / Profissonal:</label>
+          <select id="tipo_cliente" name="role" class="form-group" [(ngModel)]="form.role" required #role="ngModel">
             <option>Cliente</option>
             <option>Profissional</option>
           </select>
-          <div class="alert-danger" *ngIf="f.submitted && role.invalid">
+          <!-- <input id="tipo_cliente" type="text" class="form-control" name="role" [(ngModel)]="form.role" required #role="ngModel"
+          placeholder="Preencha com Cliente ou Prifissional" /> -->
+          <!-- <div class="alert-danger" *ngIf="f.submitted && role.invalid">
             <div *ngIf="role.errors.required">Necessário preencher o Tipo de usuário</div>
-          </div>
+          </div> -->
           &nbsp;
         </div>
 
@@ -205,7 +207,7 @@
 
       <button id="enviar" type="submit" class="btn btn-success btn-lg">Enviar</button>
       &nbsp; &nbsp; &nbsp;
-      <button id="enviar" type="reset" class="btn btn-warning btn-lg" onclick="form.reset()">Limpar</button>
+      <button id="limpar" type="reset" class="btn btn-warning btn-lg" onclick="form.reset()">Limpar</button>
       <br><br>
 
 
