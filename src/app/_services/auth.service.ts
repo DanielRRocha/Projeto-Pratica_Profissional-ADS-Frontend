@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
-const AUTH_API_ = 'http://localhost:8080/api/usuario/';
+const AUTH_API = 'ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080//api/auth/';
+const AUTH_API_ = 'ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080/api/usuario/';
 
 
 const httpOptions = {

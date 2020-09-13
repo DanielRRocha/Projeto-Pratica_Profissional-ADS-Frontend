@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const AUTH_API = 'http://localhost:8080/api/usuario/busca/';
+const AUTH_API = 'ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080/api/usuario/busca/';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
