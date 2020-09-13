@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 
-const AUTH_API = 'ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080/api/usuario/busca/';
+const AUTH_API = 'http://ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080/api/usuario/busca/';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
