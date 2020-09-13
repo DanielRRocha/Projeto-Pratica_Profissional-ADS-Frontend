@@ -1,74 +1,81 @@
 <div class="col-md-12">
   <div class="card card-container">
 
-    <form>
+    <form  id="myform" *ngIf="!isSuccessful" name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate >
       <div class="form-group">
         <!-- Nome -->
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" name="nome" value="{{ user.nome }}">
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" class="form-control" name="nome"  value="{{ user.nome }}" [(ngModel)]="form.nome" #nome="ngModel" disabled>
       </div>
       <!-- sobrenome -->
       <div class="form-group">
         <label for="sobrenome">Sobrenome:</label>
-        <input type="text" class="form-control" name="sobrenome" value="{{ user.sobrenome }}">
+        <input id="sobrenome" type="text" class="form-control" name="sobrenome" value="{{ user.sobrenome }}"
+          [(ngModel)]="form.sobrenome" disabled #sobrenome="ngModel">
       </div>
       <div class="row">
         <!-- CPF -->
         <div class="col-lg-6">
           <label for="cpf">CPF:</label>
-          <input name="cpf" type="text" class="form-control" name="cpf" value="{{ user.cpf }}">
-          
+          <input id="cpf" type="text" class="form-control" name="cpf" [(ngModel)]="form.cpf" required #cpf="ngModel" disabled value="{{ user.cpf }}">
+
           &nbsp;
         </div>
         <!-- RG -->
         <div class="col-lg-6">
-          <label for="cpf">RG:</label>
-          <input name="rg" type="text" class="form-control" value="{{ user.rg }}" pattern="[0-9]+$" maxlength="8">
-          
+          <label for="rg">RG:</label>
+          <input id="rg" type="text" class="form-control" name="rg" [(ngModel)]="form.rg" required #rg="ngModel"disabled value="{{ user.rg }}">
+
           &nbsp;
         </div>
 
         <!-- Telefone -->
         <div class="col-lg-6">
           <label for="telefone">Telefone:</label>
-          <input name="telefone" type="text" class="form-control" value="{{ user.telefone }}" maxlength="13">
+          <input id="telefone" name="telefone" type="text" class="form-control" value="{{ user.telefone }}"
+            maxlength="13" placeholder="XXX XXXXX-XXXX" [(ngModel)]="form.telefone" required #telefone="ngModel">
           &nbsp;
         </div>
 
         <!-- CEP -->
         <div class="col-lg-6">
           <label for="cep">Cep:</label>
-          <input name="cep" type="text" class="form-control" value="{{ user.cep }}" pattern="[0-9]+$">
+          <input id="cep" name="cep" type="text" class="form-control" value="{{ user.cep }}" pattern="[0-9]+$"
+            placeholder="Cep"[(ngModel)]="form.cep" required #cep="ngModel">
           &nbsp;
         </div>
         <!-- Rua -->
         <div class="col-lg-6">
           <label for="rua">Rua:</label>
-          <input name="rua" type="text" class="form-control" id="rua" value="{{ user.rua }}" maxlength="100">
+          <input name="rua" type="text" class="form-control" id="rua" value="{{ user.rua }}" maxlength="100"
+            placeholder="Endereço"[(ngModel)]="form.rua" required #rua="ngModel">
           &nbsp;
         </div>
         <!-- Numero -->
         <div class="col-lg-3">
           <label for="numero">Nº:</label>
-          <input name="numero" type="text" class="form-control" value="{{ user.numero }}" maxlength="10" id="numero">
+          <input name="numero" type="text" class="form-control" value="{{ user.numero }}" maxlength="10" id="numero"
+            placeholder="Número"[(ngModel)]="form.numero" required #numero="ngModel">
           &nbsp;
         </div>
         <!-- Bairro -->
         <div class="col-lg-3">
           <label for="bairro">Bairro:</label>
-          <input name="bairro" type="text" class="form-control" value="{{ user.bairro }}" id="bairro">
+          <input name="bairro" type="text" class="form-control" value="{{ user.bairro }}" id="bairro"
+            placeholder="Bairro"[(ngModel)]="form.bairro" required #bairro="ngModel">
           &nbsp;
         </div>
         <!-- Cidade -->
         <div class="col-lg-3 form-text">
           <label for="cidade">Cidade:</label>
-          <input name="cidade" type="text" class="form-control" placeholder="Cidade" value="{{ user.cidade }}" id="cidade">
+          <input name="cidade" type="text" class="form-control" placeholder="Cidade" value="{{ user.cidade }}"
+            id="cidade"[(ngModel)]="form.cidade" required #cidade="ngModel">
           &nbsp;
         </div>
         <!-- Estado -->
         <div class="col-3">
           <label for="estado" class="form-text">Estado:</label>
-          <select name="estado" class="form-group" value="{{ user.estado }}">
+          <select id="estado" name="estado" class="form-group" value="{{ user.estado }}"[(ngModel)]="form.estado" required #estado="ngModel">
             <option>AC</option>
             <option>AL</option>
             <option>AP</option>
@@ -102,19 +109,32 @@
         </div>
       </div>
       <div class="form-group">
+        <!-- Username -->
         <label for="username">Username</label>
-        <input type="text" class="form-control" name="username" value="{{ user.username }}" required minlength="3" maxlength="20">
+        <input id="username" type="text" class="form-control" name="username" value="{{ user.username }}" required
+          minlength="3" maxlength="20" placeholder="Username"[(ngModel)]="form.username" required #username="ngModel" disabled>
       </div>
       <div class="form-group">
+        <!-- E-mail -->
         <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" value="{{ user.email }}" required email>
+        <input id="email" type="email" class="form-control" name="email" value="{{ user.email }}" required email
+          placeholder="E-mail"[(ngModel)]="form.email" required #email="ngModel">
       </div>
-       <div class="form-group">
+      <div class="form-group">
+        <!-- Senha -->
         <label for="password">Password</label>
-        <input type="password" class="form-control" name="password" value="{{ user.password }}" required minlength="6">
-      </div> 
-      <button type="submit" class="btn btn-primary">Enviar</button>
+        <input id="senha" type="password" class="form-control" name="password" required minlength="6"
+          placeholder="Digite sua senha para confirmar alterações"[(ngModel)]="form.password" required #password="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+            <div *ngIf="password.errors.required">Necessário preencher a Senha</div>
+          </div>
+      </div>
+      <button id="enviar" type="submit" class="btn btn-primary">Atualizar Dados</button>
+      
     </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Usuário {{ username }} alterado com Sucesso!
+    </div>
   </div>
 </div>
 
