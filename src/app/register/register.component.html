@@ -1,0 +1,223 @@
+<div class="col-md-12">
+  <div class="card card-container">
+
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <!-- Nome -->
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" class="form-control" name="nome" [(ngModel)]="form.nome" required #nome="ngModel"
+          placeholder="Nome" />
+        <div class="alert-danger" *ngIf="f.submitted && nome.invalid">
+          <div *ngIf="nome.errors.required">Necessário preencher o Nome</div>
+        </div>
+      </div>
+      <!-- sobrenome -->
+      <div class="form-group">
+        <label for="sobrenome">Sobrenome:</label>
+        <input id="sobrenome" type="text" class="form-control" name="sobrenome" [(ngModel)]="form.sobrenome" required
+          #sobrenome="ngModel" placeholder="Sobrenome">
+        <div class="alert-danger" *ngIf="f.submitted && sobrenome.invalid">
+          <div *ngIf="sobrenome.errors.required">Necessário preencher o Sobrenome</div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- CPF -->
+        <div class="col-lg-6">
+          <label for="cpf">CPF:</label>
+          <input id="cpf" name="cpf" type="text" class="form-control" name="cpf" [(ngModel)]="form.cpf" required #cpf="ngModel"
+            placeholder="Apenas números" pattern="[0-9]+$" maxlength="11">
+          <div class="alert-danger" *ngIf="f.submitted && cpf.invalid">
+            <div *ngIf="cpf.errors.required">Necessário preencher o CPF</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- RG -->
+        <div class="col-lg-6">
+          <label for="rg">RG:</label>
+          <input id="rg" name="rg" type="text" class="form-control" placeholder="Apenas números" pattern="[0-9]+$" maxlength="8"
+            [(ngModel)]="form.rg" required #rg="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && rg.invalid">
+            <div *ngIf="rg.errors.required">Necessário preencher o RG</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- Telefone -->
+        <div class="col-lg-6">
+          <label for="telefone">Telefone:</label>
+          <input id="telefone" name="telefone" type="text" class="form-control" placeholder="XX XXXXX-XXXX" maxlength="13"
+            [(ngModel)]="form.telefone" required #telefone="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && telefone.invalid">
+            <div *ngIf="telefone.errors.required">Necessário preencher o Telefone</div>
+          </div>
+          &nbsp;
+        </div>
+
+        <!-- CEP -->
+        <div class="col-lg-6">
+          <label for="cep">Cep:</label>
+          <input id="cep" name="cep" type="text" class="form-control" placeholder="Apenas números" pattern="[0-9]+$"
+            maxlength="13" [(ngModel)]="form.cep" required #cep="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && cep.invalid">
+            <div *ngIf="cep.errors.required">Necessário preencher o Cep</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- Rua -->
+        <div class="col-lg-6">
+          <label for="rua">Rua:</label>
+          <input id="rua" name="rua" type="text" class="form-control" id="rua" placeholder="Nome da rua" maxlength="100"
+            [(ngModel)]="form.rua" required #rua="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && rua.invalid">
+            <div *ngIf="rua.errors.required">Necessário preencher a Rua</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- Numero -->
+        <div class="col-lg-3">
+          <label for="numero">Nº:</label>
+          <input name="numero" type="text" class="form-control" placeholder="Número" maxlength="10" id="numero"
+            [(ngModel)]="form.numero" required #numero="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && numero.invalid">
+            <div *ngIf="numero.errors.required">Necessário preencher o Número</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- Bairro -->
+        <div class="col-lg-3">
+          <label for="bairro">Bairro:</label>
+          <input name="bairro" type="text" class="form-control" placeholder="Nome do Bairro" id="bairro"
+            [(ngModel)]="form.bairro" required #bairro="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && bairro.invalid">
+            <div *ngIf="bairro.errors.required">Necessário preencher o Bairro</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- Cidade -->
+        <div class="col-lg-3 form-text">
+          <label for="cidade">Cidade:</label>
+          <input name="cidade" type="text" class="form-control" placeholder="Cidade" id="cidade"
+            [(ngModel)]="form.cidade" required #cidade="ngModel">
+          <div class="alert-danger" *ngIf="f.submitted && cidade.invalid">
+            <div *ngIf="cidade.errors.required">Necessário preencher a Cidade</div>
+          </div>
+          &nbsp;
+        </div>
+        <!-- Estado -->
+        <div class="col-3">
+          <label for="estado" class="form-text">Estado:</label>
+          <select id="estado" name="estado" class="form-group" [(ngModel)]="form.estado" required #estado="ngModel">
+            <option>AC</option>
+            <option>AL</option>
+            <option>AP</option>
+            <option>ES</option>
+            <option>AM</option>
+            <option>BA</option>
+            <option>CE</option>
+            <option>ES</option>
+            <option>GO</option>
+            <option>MA</option>
+            <option>MT</option>
+            <option>MS</option>
+            <option>MG</option>
+            <option>PA</option>
+            <option>PB</option>
+            <option>PR</option>
+            <option>PE</option>
+            <option>PI</option>
+            <option>RJ</option>
+            <option>RN</option>
+            <option>RS</option>
+            <option>RO</option>
+            <option>RR</option>
+            <option>SC</option>
+            <option>SP</option>
+            <option>SE</option>
+            <option>TO</option>
+            <option>DF</option>
+          </select>
+          <div class="alert-danger" *ngIf="f.submitted && estado.invalid">
+            <div *ngIf="estado.errors.required">Necessário preencher o Estado</div>
+          </div>
+          &nbsp;
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- Username -->
+        <label for="username">Username</label>
+        <input id="username" type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel" placeholder="Username">
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Necessário preencher o Username</div>
+          <div *ngIf="username.errors.minlength">
+            Username precisa ter pelo menos 3 caracteres
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Username precisa ter pelo menos 20 caracteres
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- E-mail -->
+        <label for="email">Email</label>
+        <input id="email" type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+          #email="ngModel" placeholder="E-mail">
+        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email.errors.required">Necessário preencher o Email</div>
+          <div *ngIf="email.errors.email">
+            O email deve ser um endereço válido
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- Senha -->
+        <label for="password">Password</label>
+        <input id="senha" type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" placeholder="Senha">
+        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Necessário preencher a Senha</div>
+          <div *ngIf="password.errors.minlength">
+            Senha precisa ter pelo menos 6 caracteres
+          </div>
+        </div>
+
+        <div class="col-3">
+          <!-- Tipo de Usuario -->
+          <label for="role" class="form-text">Cliente / Profissonal:</label>
+          <select id="tipo_cliente" name="role" class="form-group" [(ngModel)]="form.role" required #role="ngModel">
+            <option>Cliente</option>
+            <option>Profissional</option>
+          </select>
+          <!-- <input id="tipo_cliente" type="text" class="form-control" name="role" [(ngModel)]="form.role" required #role="ngModel"
+          placeholder="Preencha com Cliente ou Prifissional" /> -->
+          <!-- <div class="alert-danger" *ngIf="f.submitted && role.invalid">
+            <div *ngIf="role.errors.required">Necessário preencher o Tipo de usuário</div>
+          </div> -->
+          &nbsp;
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <!-- Checkbox Termos -->
+        <div class="form-check"> <input id="checkbox_termos" class="form-check-input" required type="checkbox" id="form21" value="on">
+          <label id="texto_termos" class="form-check-label" for="form2">Eu concordo com os <u><a target="_blank" rel="noopener noreferrer"
+                href="termos.html">termos e condições do serviço</a></u></label>
+        </div>
+      </div>
+
+      <button id="enviar" type="submit" class="btn btn-success btn-lg">Enviar</button>
+      &nbsp; &nbsp; &nbsp;
+      <button id="limpar" type="reset" class="btn btn-warning btn-lg" onclick="form.reset()">Limpar</button>
+      <br><br>
+
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Registro falhou!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Usuário {{ username }} registrado com Sucesso!
+    </div>
+  </div>
+</div>
