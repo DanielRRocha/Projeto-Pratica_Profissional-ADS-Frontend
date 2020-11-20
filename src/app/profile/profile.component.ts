@@ -4,7 +4,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 
-const AUTH_API = 'http://ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080/api/usuario/busca/';
+const AUTH_API = 'http://marido-aluguel-homolog.brazilsouth.cloudapp.azure.com:8080/api/usuario/busca/';
+//const AUTH_API = 'http://localhost:8080/api/usuario/';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private token: TokenStorageService,
-              private authService: AuthService) { }
+              private authService: AuthService,) { }
 
   user: any = {};
   form: any = {};
@@ -30,7 +31,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const body = `username=${this.token.getUser().username}`;
     
-    this.http.post<any>(`${AUTH_API}username`, body, httpOptions).subscribe(
+    this.http.post<any>(`${AUTH_API}busca/username`, body, httpOptions).subscribe(
       data => {
         this.user = data;
         console.log('Tela carregada');
@@ -91,5 +92,37 @@ export class ProfileComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  userDelete(user){
+    //alert('Tem certeza?');
+
+    this.form.username = this.user.username;
+    this.form.password = this.user.password;
+
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        //'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYW5pZWwiLCJpYXQiOjE2MDE2ODMyNzEsImV4cCI6MTYwMTc2OTY3MX0.pSyEvczfHy52b4XPb8ZlJIX6rePps1EGw_HUVqYK9hxnqSyhMUViBE2qiStEqFK6F1e7X2uIecYmh37nTc5-xQ',
+      }),
+      body: {
+        username: this.form.username,
+        password: this.form.password,
+      },
+    };
+    
+    
+    if (confirm('Tem certeza?')) {
+      this.http
+      .delete(`${AUTH_API}usuario/excluir`, options)
+      .subscribe((s) => {
+        console.log(s);
+      });
+      
+    } else {
+      alert('Ufa!');
+      this.reloadPage();
+    }
   }
 }

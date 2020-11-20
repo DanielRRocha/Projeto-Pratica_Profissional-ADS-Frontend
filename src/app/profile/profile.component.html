@@ -130,7 +130,8 @@
           </div>
       </div>
       <button id="enviar" type="submit" class="btn btn-primary">Atualizar Dados</button>
-      
+      &nbsp;&nbsp;
+      <button id="excluir" type="button" class="btn btn-danger" (click)="userDelete()">Excluir conta</button>
     </form>
     <div class="alert alert-success" *ngIf="isSuccessful">
       Usuário {{ username }} alterado com Sucesso!

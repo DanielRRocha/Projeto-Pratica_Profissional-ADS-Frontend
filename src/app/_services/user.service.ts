@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://ec2-13-52-253-236.us-west-1.compute.amazonaws.com:8080/api/test/';
+const API_URL = 'http://marido-aluguel-homolog.brazilsouth.cloudapp.azure.com:8080/api/test/';
+//const API_URL = 'http://localhost:8080/api/test/';
 
 @Injectable({
   providedIn: 'root'
